@@ -5,7 +5,7 @@
     android:id="@+id/fragment_coin_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.coinList.OverviewFragment">
+    tools:context=".ui.overview.OverviewFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/overview_rv"

@@ -1,4 +1,4 @@
-package com.example.cryptoapp.ui.coinList
+package com.example.cryptoapp.ui.overview
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cryptoapp.R
 import com.example.cryptoapp.databinding.FragmentOverviewBinding
 import kotlinx.android.synthetic.main.fragment_overview.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -65,6 +67,11 @@ class OverviewFragment : Fragment() {
         binding.overviewRv.apply {
             adapter = coinsAdapter
             layoutManager = LinearLayoutManager(activity)
+        }
+
+        coinsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply { putSerializable("coin", it) }
+            findNavController().navigate(R.id.overviewFragment_to_detailFragment, bundle)
         }
     }
 

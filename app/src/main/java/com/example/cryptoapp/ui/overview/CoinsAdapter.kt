@@ -1,4 +1,4 @@
-package com.example.cryptoapp.ui.coinList
+package com.example.cryptoapp.ui.overview
 
 import android.view.LayoutInflater
 import android.view.View

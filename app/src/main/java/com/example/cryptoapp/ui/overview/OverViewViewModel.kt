@@ -1,4 +1,4 @@
-package com.example.cryptoapp.ui.coinList
+package com.example.cryptoapp.ui.overview
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
