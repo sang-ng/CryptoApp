@@ -1,6 +1,6 @@
 package com.example.cryptoapp.data.remote.dto
 
-import com.example.cryptoapp.domain.model.CoinDetail
+import com.example.cryptoapp.model.CoinDetail
 
 data class CoinDetailDto(
     val description: String,

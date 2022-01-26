@@ -1,4 +1,4 @@
-package com.example.cryptoapp.presentation.ui
+package com.example.cryptoapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

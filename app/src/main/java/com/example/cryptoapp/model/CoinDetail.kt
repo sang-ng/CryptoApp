@@ -1,4 +1,4 @@
-package com.example.cryptoapp.domain.model
+package com.example.cryptoapp.model
 
 import com.example.cryptoapp.data.remote.dto.TeamMember
 

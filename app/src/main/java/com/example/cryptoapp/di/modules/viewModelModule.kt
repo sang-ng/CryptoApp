@@ -1,6 +1,6 @@
 package com.example.cryptoapp.di.modules
 
-import com.example.cryptoapp.presentation.ui.coinList.CoinListViewModel
+import com.example.cryptoapp.ui.coinList.CoinListViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

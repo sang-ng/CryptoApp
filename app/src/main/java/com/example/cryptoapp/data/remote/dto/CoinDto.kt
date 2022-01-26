@@ -1,6 +1,6 @@
 package com.example.cryptoapp.data.remote.dto
 
-import com.example.cryptoapp.domain.model.Coin
+import com.example.cryptoapp.model.Coin
 import com.google.gson.annotations.SerializedName
 
 //DTO(= Data transfer object, object, which we get from API)
