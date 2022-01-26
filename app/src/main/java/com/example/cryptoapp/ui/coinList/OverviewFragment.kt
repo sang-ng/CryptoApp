@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cryptoapp.databinding.FragmentOverviewBinding
+import kotlinx.android.synthetic.main.fragment_overview.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -40,6 +42,21 @@ class OverviewFragment : Fragment() {
         viewModel.coins.observe(viewLifecycleOwner, { coins ->
             coinsAdapter.differ.submitList(coins)
         })
+
+        viewModel.status.observe(viewLifecycleOwner, { status ->
+            when (status) {
+                OverViewViewModel.CoinApiStatus.ERROR -> {
+                    hideProgressBar()
+                    Toast.makeText(requireContext(), "no internet", Toast.LENGTH_SHORT).show()
+                }
+                OverViewViewModel.CoinApiStatus.LOADING -> {
+                    showProgressBar()
+                }
+                OverViewViewModel.CoinApiStatus.SUCCESS -> {
+                    hideProgressBar()
+                }
+            }
+        })
     }
 
     private fun setupRecyclerView() {
@@ -49,6 +66,13 @@ class OverviewFragment : Fragment() {
             adapter = coinsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
+    }
 
+    private fun showProgressBar() {
+        overview_progressbar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        overview_progressbar.visibility = View.INVISIBLE
     }
 }

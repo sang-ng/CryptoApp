@@ -1,14 +1,13 @@
 package com.example.cryptoapp.ui.coinList
 
-import android.app.Application
-import androidx.lifecycle.*
-import com.example.cryptoapp.data.remote.dto.CoinDto
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.cryptoapp.data.remote.dto.toCoin
 import com.example.cryptoapp.data.repository.CoinRepository
 import com.example.cryptoapp.model.Coin
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class OverViewViewModel(
     private val repository: CoinRepository
