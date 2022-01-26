@@ -38,8 +38,7 @@ class CoinsAdapter : RecyclerView.Adapter<CoinsAdapter.CoinViewHolder>() {
         val coin = differ.currentList[position]
         holder.itemView.apply {
 
-            tv_coin_name.text = coin.name
-            tv_coin_rank.text = coin.rank.toString()
+            tv_coin.text = coin.rank.toString() + ". " + coin.name + " (" + coin.symbol + ")"
 
             setOnClickListener { onItemClickListener?.let { it(coin) } }
         }

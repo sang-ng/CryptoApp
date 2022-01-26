@@ -5,12 +5,13 @@
     android:id="@+id/fragment_coin_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#171717"
     tools:context=".ui.overview.OverviewFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/overview_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
