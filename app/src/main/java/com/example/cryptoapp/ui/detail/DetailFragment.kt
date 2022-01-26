@@ -72,6 +72,11 @@ class DetailFragment : Fragment() {
     private fun updateUI(coinDetail: CoinDetail) {
         detail_coin_name.text = coinDetail.name
         detail_coin_description.text = coinDetail.description
+        detail_type.text = "Type: " + coinDetail.type
+        detail_start_date.text = "Start date: " + coinDetail.started_at
+        detail_proof_type.text = "Proof type: " + coinDetail.proof_type
+        detail_development.text = "Development status: " + coinDetail.development_status
+
     }
 
     private fun showProgressBar() {
