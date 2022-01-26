@@ -4,12 +4,10 @@
     android:id="@+id/fragment_coin_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.coinList.CoinListFragment">
+    tools:context=".ui.coinList.OverviewFragment">
 
-    <TextView
-        android:id="@+id/fr_coin_list_text"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/overview_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:layout_height="match_parent" />
 </FrameLayout>

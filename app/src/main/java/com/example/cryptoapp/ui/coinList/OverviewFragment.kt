@@ -1,28 +1,32 @@
 package com.example.cryptoapp.ui.coinList
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.cryptoapp.databinding.FragmentCoinListBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cryptoapp.databinding.FragmentOverviewBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
-class CoinListFragment : Fragment() {
+class OverviewFragment : Fragment() {
 
     private val TAG = "TEST"
 
-    private val viewModel: CoinListViewModel by viewModel()
-    private lateinit var binding: FragmentCoinListBinding
+    private val viewModel: OverViewViewModel by viewModel()
+    private lateinit var binding: FragmentOverviewBinding
+    lateinit var coinsAdapter: CoinsAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCoinListBinding.inflate(inflater, container, false)
+        binding = FragmentOverviewBinding.inflate(inflater, container, false)
+
+        setupRecyclerView()
         return binding.root
     }
 
@@ -34,7 +38,17 @@ class CoinListFragment : Fragment() {
 
     private fun initObserver() {
         viewModel.coins.observe(viewLifecycleOwner, { coins ->
-
+            coinsAdapter.differ.submitList(coins)
         })
+    }
+
+    private fun setupRecyclerView() {
+        coinsAdapter = CoinsAdapter()
+
+        binding.overviewRv.apply {
+            adapter = coinsAdapter
+            layoutManager = LinearLayoutManager(activity)
+        }
+
     }
 }

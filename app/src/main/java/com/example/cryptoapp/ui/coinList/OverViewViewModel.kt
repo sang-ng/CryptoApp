@@ -3,12 +3,14 @@ package com.example.cryptoapp.ui.coinList
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.cryptoapp.data.remote.dto.CoinDto
+import com.example.cryptoapp.data.remote.dto.toCoin
 import com.example.cryptoapp.data.repository.CoinRepository
+import com.example.cryptoapp.model.Coin
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class CoinListViewModel(
+class OverViewViewModel(
     private val repository: CoinRepository
 ) : ViewModel() {
 
@@ -17,11 +19,11 @@ class CoinListViewModel(
     val status: LiveData<CoinApiStatus>
         get() = _status
 
-    val coins: LiveData<List<CoinDto>>
+    val coins: LiveData<List<Coin>>
         get() = _coins
 
     private val _status = MutableLiveData<CoinApiStatus>()
-    private val _coins = MutableLiveData<List<CoinDto>>()
+    private val _coins = MutableLiveData<List<Coin>>()
 
     init {
         getCoins()
@@ -32,7 +34,7 @@ class CoinListViewModel(
             _status.value = CoinApiStatus.LOADING
 
             try {
-                _coins.value = repository.getCoins()
+                _coins.value = repository.getCoins().map { it.toCoin() }
                 _status.value = CoinApiStatus.SUCCESS
             } catch (e: Exception) {
                 _status.value = CoinApiStatus.ERROR
