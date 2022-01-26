@@ -11,7 +11,12 @@ import androidx.navigation.fragment.navArgs
 import com.example.cryptoapp.R
 import com.example.cryptoapp.databinding.FragmentDetailBinding
 import com.example.cryptoapp.databinding.FragmentOverviewBinding
+import com.example.cryptoapp.model.Coin
+import com.example.cryptoapp.model.CoinDetail
 import com.example.cryptoapp.ui.overview.OverViewViewModel
+import kotlinx.android.synthetic.main.fragment_detail.*
+import kotlinx.android.synthetic.main.fragment_overview.*
+import kotlinx.android.synthetic.main.fragment_overview.overview_progressbar
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -34,10 +39,46 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val coin = args.coin
-
-        Log.d(TAG, "onViewCreated: " + coin?.id)
-        Toast.makeText(requireContext(), coin?.name, Toast.LENGTH_SHORT).show()
+        getSelectedCoin()
+        initObserver()
     }
 
+    private fun getSelectedCoin() {
+        val coin = args.coin
+        coin?.id?.let { viewModel.getCoinById(coindId = it) }
+    }
+
+    private fun initObserver() {
+        viewModel.coin.observe(viewLifecycleOwner, { it ->
+            updateUI(it)
+        })
+
+        viewModel.status.observe(viewLifecycleOwner, { status ->
+            when (status) {
+                DetailViewModel.CoinApiStatus.ERROR -> {
+                    hideProgressBar()
+                    Toast.makeText(requireContext(), "no internet", Toast.LENGTH_SHORT).show()
+                }
+                DetailViewModel.CoinApiStatus.LOADING -> {
+                    showProgressBar()
+                }
+                DetailViewModel.CoinApiStatus.SUCCESS -> {
+                    hideProgressBar()
+                }
+            }
+        })
+    }
+
+    private fun updateUI(coinDetail: CoinDetail) {
+        detail_coin_name.text = coinDetail.name
+        detail_coin_description.text = coinDetail.description
+    }
+
+    private fun showProgressBar() {
+        detail_progressbar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        detail_progressbar.visibility = View.INVISIBLE
+    }
 }
