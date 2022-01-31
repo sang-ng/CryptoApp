@@ -36,6 +36,8 @@ class DetailFragment : Fragment() {
 
         setSelectedCoin()
         initObserver()
+
+
         initClickListener()
     }
 
@@ -47,7 +49,7 @@ class DetailFragment : Fragment() {
 
 
     private fun setSelectedCoin() {
-        args.coin?.id?.let { viewModel.getCoinById(coindId = it) }
+        args.coin?.let { viewModel.getCoinById(coindId = it.id) }
     }
 
     private fun initObserver() {
