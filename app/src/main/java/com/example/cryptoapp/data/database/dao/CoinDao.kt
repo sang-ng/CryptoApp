@@ -15,5 +15,5 @@ interface CoinDao {
     fun getSavedCoins(): LiveData<List<CoinDb>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrUpdate(coin: CoinDb)
+    suspend fun insertOrUpdate(coin: CoinDb) : Long
 }
