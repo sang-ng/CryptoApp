@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cryptoapp.data.remote.dto.toCoin
 import com.example.cryptoapp.data.remote.dto.toCoinDetail
-import com.example.cryptoapp.data.repository.CoinRepository
+import com.example.cryptoapp.repository.CoinRepository
 import com.example.cryptoapp.model.Coin
 import com.example.cryptoapp.model.CoinDetail
 import kotlinx.coroutines.launch

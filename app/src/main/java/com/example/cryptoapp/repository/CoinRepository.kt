@@ -1,4 +1,4 @@
-package com.example.cryptoapp.data.repository
+package com.example.cryptoapp.repository
 
 import com.example.cryptoapp.data.remote.CoinPaprikaApi
 import com.example.cryptoapp.data.remote.dto.CoinDetailDto

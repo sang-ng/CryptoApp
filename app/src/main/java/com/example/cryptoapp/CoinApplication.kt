@@ -1,6 +1,7 @@
 package com.example.cryptoapp
 
 import android.app.Application
+import com.example.cryptoapp.di.modules.databaseModule
 import com.example.cryptoapp.di.modules.repositoryModule
 import com.example.cryptoapp.di.modules.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -12,7 +13,7 @@ class CoinApplication : Application() {
 
         startKoin {
             androidContext(this@CoinApplication)
-            modules(repositoryModule, viewModelModule)
+            modules(repositoryModule, viewModelModule, databaseModule)
         }
     }
 }
