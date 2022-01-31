@@ -36,5 +36,9 @@
         android:id="@+id/myCoinsFragment"
         android:name="com.example.cryptoapp.ui.myCoins.MyCoinsFragment"
         android:label="fragment_my_coins"
-        tools:layout="@layout/fragment_my_coins" />
+        tools:layout="@layout/fragment_my_coins" >
+        <action
+            android:id="@+id/action_myCoinsFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>
