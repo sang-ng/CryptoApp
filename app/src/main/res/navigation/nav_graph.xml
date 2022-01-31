@@ -17,6 +17,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_overviewFragment_to_myCoinsFragment"
+            app:destination="@id/myCoinsFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -29,4 +32,9 @@
             android:defaultValue="@null"
             app:argType="com.example.cryptoapp.model.Coin" />
     </fragment>
+    <fragment
+        android:id="@+id/myCoinsFragment"
+        android:name="com.example.cryptoapp.ui.myCoins.MyCoinsFragment"
+        android:label="fragment_my_coins"
+        tools:layout="@layout/fragment_my_coins" />
 </navigation>
