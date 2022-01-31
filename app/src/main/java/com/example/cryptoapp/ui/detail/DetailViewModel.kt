@@ -39,4 +39,8 @@ class DetailViewModel(
             }
         }
     }
+
+    fun saveCoin(coin : Coin) = viewModelScope.launch {
+        repository.insertOrUpdate(coin)
+    }
 }

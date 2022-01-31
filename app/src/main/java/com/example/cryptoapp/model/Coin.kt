@@ -1,5 +1,7 @@
 package com.example.cryptoapp.model
 
+import com.example.cryptoapp.data.database.entities.CoinDb
+import com.example.cryptoapp.data.remote.dto.CoinDetailDto
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -11,3 +13,13 @@ data class Coin(
     val rank: Int,
     val symbol: String
 ) : Serializable
+
+fun Coin.toCoinDb(): CoinDb {
+    return CoinDb(
+        id = id,
+        name = name,
+        symbol = symbol,
+        rank = rank,
+        isActive = isActive
+    )
+}

@@ -8,13 +8,12 @@ import com.google.gson.annotations.SerializedName
 @Entity
 data class CoinDb constructor(
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
+    val _id: Long = 0,
+    val id:String,
     val isActive: Boolean,
-    val isNew: Boolean,
     val name: String,
     val rank: Int,
-    val symbol: String,
-    val type: String
+    val symbol: String
 )
 
 fun List<CoinDb>.toCoin(): List<Coin> {
