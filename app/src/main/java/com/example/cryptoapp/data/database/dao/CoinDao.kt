@@ -12,7 +12,7 @@ import com.example.cryptoapp.model.Coin
 interface CoinDao {
 
     @Query("SELECT * FROM coindb")
-    fun getAllCoins(): LiveData<List<CoinDb>>
+    fun getSavedCoins(): LiveData<List<CoinDb>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrUpdate(coin: CoinDb)

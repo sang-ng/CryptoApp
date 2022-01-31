@@ -2,6 +2,7 @@ package com.example.cryptoapp.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.cryptoapp.data.remote.dto.CoinDto
 import com.example.cryptoapp.model.Coin
 import com.google.gson.annotations.SerializedName
 
@@ -26,4 +27,14 @@ fun List<CoinDb>.toCoin(): List<Coin> {
             symbol = it.symbol
         )
     }
+}
+
+fun CoinDb.toCoin(): Coin {
+    return Coin(
+        id = id,
+        isActive = isActive,
+        name = name,
+        rank = rank,
+        symbol = symbol
+    )
 }
