@@ -1,7 +1,8 @@
-package com.example.cryptoapp.data.database
+package com.example.cryptoapp.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.cryptoapp.model.Coin
 import com.google.gson.annotations.SerializedName
 
 @Entity
@@ -14,5 +15,16 @@ data class CoinDb constructor(
     val rank: Int,
     val symbol: String,
     val type: String
-){
+)
+
+fun List<CoinDb>.toCoin(): List<Coin> {
+    return map {
+        Coin(
+            id = it.id.toString(),
+            isActive = it.isActive,
+            name = it.name,
+            rank = it.rank,
+            symbol = it.symbol
+        )
+    }
 }

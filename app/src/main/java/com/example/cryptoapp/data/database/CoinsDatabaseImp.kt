@@ -2,6 +2,10 @@ package com.example.cryptoapp.data.database
 
 import android.content.Context
 import androidx.room.*
+import com.example.cryptoapp.data.database.dao.CoinDao
+import com.example.cryptoapp.data.database.dao.CoinDetailDao
+import com.example.cryptoapp.data.database.entities.CoinDb
+import com.example.cryptoapp.data.database.entities.CoinDetailsDb
 
 @Database(
     entities = [CoinDb::class, CoinDetailsDb::class],

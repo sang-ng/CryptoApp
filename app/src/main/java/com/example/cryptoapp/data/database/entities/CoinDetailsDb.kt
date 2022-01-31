@@ -1,4 +1,4 @@
-package com.example.cryptoapp.data.database
+package com.example.cryptoapp.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -31,3 +31,4 @@ data class CoinDetailsDb constructor(
     val type: String,
     val whitepaper: Whitepaper
 )
+
