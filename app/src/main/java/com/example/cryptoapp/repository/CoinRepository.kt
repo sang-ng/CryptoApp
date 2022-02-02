@@ -7,8 +7,8 @@ import com.example.cryptoapp.data.database.entities.toCoin
 import com.example.cryptoapp.data.remote.CoinPaprikaApi
 import com.example.cryptoapp.data.remote.dto.CoinDetailDto
 import com.example.cryptoapp.data.remote.dto.CoinDto
-import com.example.cryptoapp.model.Coin
-import com.example.cryptoapp.model.toCoinDb
+import com.example.cryptoapp.data.domain.model.Coin
+import com.example.cryptoapp.data.domain.model.toCoinDb
 
 class CoinRepository(val db: CoinsDatabaseImp) {
 

@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import com.example.cryptoapp.databinding.FragmentDetailBinding
-import com.example.cryptoapp.model.Coin
-import com.example.cryptoapp.model.CoinDetail
+import com.example.cryptoapp.data.domain.model.CoinDetail
 import kotlinx.android.synthetic.main.fragment_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -57,7 +56,7 @@ class DetailFragment : Fragment() {
             updateUI(it)
         })
 
-        viewModel.status.observe(viewLifecycleOwner, { status ->
+        viewModel.apiStatus.observe(viewLifecycleOwner, { status ->
             when (status) {
                 DetailViewModel.CoinApiStatus.ERROR -> {
                     hideProgressBar()
@@ -69,6 +68,21 @@ class DetailFragment : Fragment() {
                 DetailViewModel.CoinApiStatus.SUCCESS -> {
                     hideProgressBar()
                 }
+            }
+        })
+
+        viewModel.saveStatus.observe(viewLifecycleOwner, { status ->
+            when (status) {
+                DetailViewModel.SaveCoinStatus.ERROR -> Toast.makeText(
+                    requireContext(),
+                    "An error occured",
+                    Toast.LENGTH_SHORT
+                ).show()
+                DetailViewModel.SaveCoinStatus.SUCCESS -> Toast.makeText(
+                    requireContext(),
+                    "Coin saved",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }

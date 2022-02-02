@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoapp.R
-import com.example.cryptoapp.model.Coin
+import com.example.cryptoapp.data.domain.model.Coin
 import kotlinx.android.synthetic.main.list_item_coin.view.*
 
 class CoinsAdapter : RecyclerView.Adapter<CoinsAdapter.CoinViewHolder>() {

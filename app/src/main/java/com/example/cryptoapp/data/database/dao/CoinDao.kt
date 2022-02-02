@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.cryptoapp.data.database.entities.CoinDb
-import com.example.cryptoapp.model.Coin
+import com.example.cryptoapp.data.domain.model.Coin
 
 @Dao
 interface CoinDao {

@@ -4,14 +4,13 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.example.cryptoapp.data.remote.dto.CoinDto
-import com.example.cryptoapp.model.Coin
+import com.example.cryptoapp.data.domain.model.Coin
 import com.google.gson.annotations.SerializedName
 
 @Entity(indices = [Index(value = ["id", "name"],
     unique = true)])
 data class CoinDb constructor(
-    @PrimaryKey(autoGenerate = true)
-    val _id: Long? ,
+    @PrimaryKey
     val id:String,
     val isActive: Boolean,
     val name: String,
