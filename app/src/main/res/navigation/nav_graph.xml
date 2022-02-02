@@ -30,7 +30,7 @@
             android:name="coin"
             app:nullable="true"
             android:defaultValue="@null"
-            app:argType="com.example.cryptoapp.model.Coin" />
+            app:argType="com.example.cryptoapp.data.domain.model.Coin" />
     </fragment>
     <fragment
         android:id="@+id/myCoinsFragment"

@@ -42,7 +42,7 @@ class DetailFragment : Fragment() {
 
     private fun initClickListener() {
         binding.detailFabSave.setOnClickListener {
-            args.coin?.let { it -> viewModel.saveCoin(it) }
+            args.coin?.let { viewModel.saveCoin(it) }
         }
     }
 
