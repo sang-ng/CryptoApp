@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Desktop/Android Studio/CryptoApp/app/src/main/res/layout/activity_main.xml" value="0.164967562557924" />
+        <entry key="..\:/Users/nguyens/Desktop/Projekte/CryptoApp/app/src/main/res/font/font.xml" value="0.5314814814814814" />
+        <entry key="..\:/Users/nguyens/Desktop/Projekte/CryptoApp/app/src/main/res/font/roboto_medium.xml" value="0.5314814814814814" />
         <entry key="..\:/Users/nguyens/Desktop/Projekte/CryptoApp/app/src/main/res/layout/activity_main.xml" value="0.30625" />
         <entry key="..\:/Users/nguyens/Desktop/Projekte/CryptoApp/app/src/main/res/layout/fragment_coin_list.xml" value="0.4395833333333333" />
-        <entry key="..\:/Users/nguyens/Desktop/Projekte/CryptoApp/app/src/main/res/layout/fragment_detail.xml" value="0.43697916666666664" />
+        <entry key="..\:/Users/nguyens/Desktop/Projekte/CryptoApp/app/src/main/res/layout/fragment_detail.xml" value="0.32657657657657657" />
         <entry key="..\:/Users/nguyens/Desktop/Projekte/CryptoApp/app/src/main/res/layout/fragment_overview.xml" value="0.4244791666666667" />
         <entry key="..\:/Users/nguyens/Desktop/Projekte/CryptoApp/app/src/main/res/layout/list_item_coin.xml" value="0.4244791666666667" />
       </map>

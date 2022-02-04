@@ -1,6 +1,6 @@
 package com.example.cryptoapp.data.remote.dto
 
-import com.example.cryptoapp.model.CoinDetail
+import com.example.cryptoapp.data.domain.model.CoinDetail
 
 data class CoinDetailDto(
     val description: String,
@@ -37,6 +37,11 @@ fun CoinDetailDto.toCoinDetail(): CoinDetail {
         rank = rank,
         isActive = is_active,
         tags = tags.map { it.name },
-        team = team
+        team = team,
+        type = type,
+        started_at = started_at,
+        proof_type = proof_type,
+        development_status = development_status
+
     )
 }

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoapp.R
-import com.example.cryptoapp.model.Coin
+import com.example.cryptoapp.data.domain.model.Coin
 import kotlinx.android.synthetic.main.list_item_coin.view.*
 
 class CoinsAdapter : RecyclerView.Adapter<CoinsAdapter.CoinViewHolder>() {
@@ -38,8 +38,7 @@ class CoinsAdapter : RecyclerView.Adapter<CoinsAdapter.CoinViewHolder>() {
         val coin = differ.currentList[position]
         holder.itemView.apply {
 
-            tv_coin_name.text = coin.name
-            tv_coin_rank.text = coin.rank.toString()
+            tv_coin.text = coin.rank.toString() + ". " + coin.name + " (" + coin.symbol + ")"
 
             setOnClickListener { onItemClickListener?.let { it(coin) } }
         }

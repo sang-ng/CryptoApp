@@ -49,7 +49,7 @@ class OverviewFragment : Fragment() {
             when (status) {
                 OverViewViewModel.CoinApiStatus.ERROR -> {
                     hideProgressBar()
-                    Toast.makeText(requireContext(), "no internet", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "an error occured", Toast.LENGTH_SHORT).show()
                 }
                 OverViewViewModel.CoinApiStatus.LOADING -> {
                     showProgressBar()
