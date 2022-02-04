@@ -4,8 +4,8 @@ CryptoApp is an app to view Crypto coins with their details.
 
 ### Screenshots
 
-![Screenshot 1](screenshots/1.png)
-![Screenshot 2](screenshots/2.png)
+![Screenshot 1](screenshots/1.PNG)
+![Screenshot 2](screenshots/2.PNG)
 
 ### Dependencies
 
