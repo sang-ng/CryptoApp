@@ -2,6 +2,7 @@ package com.example.cryptoapp.data.remote
 
 import com.example.cryptoapp.data.remote.dto.CoinDetailDto
 import com.example.cryptoapp.data.remote.dto.CoinDto
+import com.example.cryptoapp.util.Constants
 import com.example.cryptoapp.util.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,10 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(GsonConverterFactory.create())
-    .baseUrl(BASE_URL)
-    .build()
 
 interface CoinApiService {
 
@@ -25,6 +22,12 @@ interface CoinApiService {
     suspend fun getCoinById(@Path("coinId") coinId: String): CoinDetailDto
 }
 
-object CoinPaprikaApi {
-    val retrofitService: CoinApiService by lazy { retrofit.create(CoinApiService::class.java) }
+fun provideRetrofit(): Retrofit {
+    return Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl(Constants.BASE_URL)
+        .build()
 }
+
+fun provideNetworkApi(retrofit: Retrofit): CoinApiService =
+    retrofit.create(CoinApiService::class.java)
