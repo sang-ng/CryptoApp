@@ -9,16 +9,19 @@ import com.example.cryptoapp.data.remote.dto.CoinDto
 import com.example.cryptoapp.data.domain.model.Coin
 import com.example.cryptoapp.data.domain.model.toCoinDb
 import com.example.cryptoapp.data.remote.CoinApiService
+import retrofit2.Response
 
-class CoinRepository(val db: CoinsDatabaseImp, val retrofitService: CoinApiService) {
+class CoinRepository(
+    private val db: CoinsDatabaseImp,
+    private val retrofitService: CoinApiService
+) {
 
-    suspend fun getCoins(): List<CoinDto> {
-        return retrofitService.getCoins()
-    }
+    suspend fun getCoins() =
+        retrofitService.getCoins()
 
-    suspend fun getCoinById(coinId: String): CoinDetailDto {
-        return retrofitService.getCoinById(coinId)
-    }
+    suspend fun getCoinById(coinId: String) =
+        retrofitService.getCoinById(coinId)
+
 
     suspend fun insertOrUpdate(coin: Coin) {
         db.coinDao.insertOrUpdate(coin.toCoinDb())
